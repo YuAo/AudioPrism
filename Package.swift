@@ -22,5 +22,8 @@ let package = Package(
         .testTarget(
             name: "AudioPrismTests",
             dependencies: ["AudioPrism", "Fixtures"]),
+        .executableTarget(
+            name: "AudioPrismDemo",
+            dependencies: ["AudioPrism", "Fixtures"])
     ]
 )

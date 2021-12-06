@@ -1,7 +1,7 @@
     import XCTest
     import AVFoundation
     import Fixtures
-    @testable import AudioPrism
+    import AudioPrism
 
     final class AudioPrismTests: XCTestCase {
         
