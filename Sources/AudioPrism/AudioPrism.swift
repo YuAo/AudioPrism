@@ -2,9 +2,9 @@ import AVFoundation
 import Accelerate
 import OSLog
 
-/** AudioPrism implements the `AnalyserNode` functionality defined in the Web Audio API. https://webaudio.github.io/web-audio-api/#analysernode
+/** AudioPrism implements the `AnalyserNode` functionality defined in the Web Audio API.
     
-    Thread Safety of `AudioPrism`
+    ## Thread Safety
  
     It's safe to share an `AudioPrism` object among threads.
  */
