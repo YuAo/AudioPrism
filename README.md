@@ -21,7 +21,7 @@ let frequencyData = prism.frequencyData
 
 ## Documentation
 
-[API Reference](#)
+[API Reference](https://yuao.github.io/AudioPrism/documentation/audioprism)
 
 ## Swift Package
 
