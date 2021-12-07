@@ -9,7 +9,7 @@ AudioPrism implements the `AnalyserNode` functionality defined in the Web Audio 
 ```Swift
 import AudioPrism
 
-// Create a `AudioPrism` object.
+// Create an `AudioPrism` object.
 let prism = try AudioPrism(options: ...)
 
 // Update the `AudioPrism` object with audio buffers.
