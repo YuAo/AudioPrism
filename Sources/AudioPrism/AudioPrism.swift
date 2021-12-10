@@ -157,7 +157,7 @@ public class AudioPrism {
     
     private let lock = UnfairLock()
 
-    /// Create a new `AudioPrism` object with `options`.
+    /// Initializes a new `AudioPrism` object with `options`.
     public init(options: Options = Options()) throws {
         guard AudioPrism.allowedFFTSizes.contains(options.fftSize) else {
             throw Error.invalidFFTSize
