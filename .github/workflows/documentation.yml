@@ -42,7 +42,7 @@ jobs:
     
     - name: Run Docc
       run: |
-        export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist" && swift-docc/.build/release/docc convert AudioPrism.docc --fallback-display-name AudioPrism --fallback-bundle-identifier com.imyuao.AudioPrism --fallback-bundle-version 1 --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --static-hosting-base-path /AudioPrism --output-path AudioPrism.doccarchive 
+        export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist" && swift-docc/.build/release/docc convert AudioPrism.docc --fallback-display-name AudioPrism --fallback-bundle-identifier com.imyuao.AudioPrism --fallback-bundle-version 1 --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --hosting-base-path /AudioPrism --output-path AudioPrism.doccarchive 
     
     - name: Publish to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.1
