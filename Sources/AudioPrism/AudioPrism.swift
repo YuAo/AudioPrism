@@ -8,10 +8,10 @@ import OSLog
  
     It's safe to share an `AudioPrism` object among threads.
  */
-public class AudioPrism {
+public final class AudioPrism: @unchecked Sendable {
     
     /// Options for creating an `AudioPrism` object.
-    public struct Options: Hashable, Codable {
+    public struct Options: Hashable, Codable, Sendable {
         
         /**
          Initializes a new `AudioPrism.Options`.
@@ -52,7 +52,7 @@ public class AudioPrism {
     }
     
     /// Time-domain data.
-    public struct TimeDomainData: Hashable {
+    public struct TimeDomainData: Hashable, Codable, Sendable {
         /**
          The float array of the waveform data.
          
@@ -75,7 +75,7 @@ public class AudioPrism {
     }
     
     /// Frequency data.
-    public struct FrequencyData: Hashable {
+    public struct FrequencyData: Hashable, Codable, Sendable {
         /**
          The float array of the frequency data.
         
