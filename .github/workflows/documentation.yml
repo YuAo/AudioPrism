@@ -17,15 +17,15 @@ jobs:
     - name: Clone swift-docc
       uses: actions/checkout@v2
       with:
-        repository: karwa/swift-docc
-        ref: main
+        repository: apple/swift-docc
+        ref: bb2e3b6a00af0e91ead55b291d287403954a2729
         path: swift-docc
         
     - name: Clone swift-docc-render
       uses: actions/checkout@v2
       with:
-        repository: karwa/swift-docc-render
-        ref: main
+        repository: apple/swift-docc-render
+        ref: f8085374e80d0d6c505e7aa59740aad7c95c1518
         path: swift-docc-render
         
     - name: Build swift-docc
