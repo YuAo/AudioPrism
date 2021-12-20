@@ -255,6 +255,14 @@ public final class AudioPrism: @unchecked Sendable {
                                   log2n,
                                   FFTDirection(kFFTDirection_Forward))
                     
+                    // To provide the best possible execution speeds, the vDSP library's functions don't always adhere strictly
+                    // to textbook formulas for Fourier transforms, and must be scaled accordingly.
+                    // (See https://developer.apple.com/library/archive/documentation/Performance/Conceptual/vDSP_Programming_Guide/UsingFourierTransforms/UsingFourierTransforms.html#//apple_ref/doc/uid/TP40005147-CH3-SW5)
+                    // In the case of a Real forward Transform like above: RFimp = RFmath * 2 so we need to divide the output
+                    // by 2 to get the correct value.
+                    vDSP_vsmul(realPtr.baseAddress!, 1, [0.5], realPtr.baseAddress!, 1, vDSP_Length(frequencyBinCount))
+                    vDSP_vsmul(imagPtr.baseAddress!, 1, [0.5], imagPtr.baseAddress!, 1, vDSP_Length(frequencyBinCount))
+                    
                     // Blow away the packed nyquist component.
                     imagPtr[0] = 0
                     
