@@ -152,6 +152,8 @@ public final class AudioPrism: @unchecked Sendable {
     private var sampleBuffer: [Float] = []
     private var previousFFTValues: [Float]
     
+    private let window: [Float]
+    
     private var _timeDomainData: TimeDomainData?
     private var _frequencyData: FrequencyData?
     
@@ -177,6 +179,10 @@ public final class AudioPrism: @unchecked Sendable {
         self.options = options
         self.frequencyBinCount = options.fftSize/2
         self.previousFFTValues = [Float](repeating: 0, count: frequencyBinCount)
+
+        var window = [Float](repeating: 0, count: options.fftSize)
+        vDSP_blkman_window(&window, vDSP_Length(options.fftSize), 0)
+        self.window = window
     }
     
     deinit {
@@ -228,9 +234,6 @@ public final class AudioPrism: @unchecked Sendable {
         }
         
         var samples = Array(sampleBuffer.suffix(options.fftSize))
-        
-        var window = [Float](repeating: 0, count: options.fftSize)
-        vDSP_blkman_window(&window, vDSP_Length(options.fftSize), 0)
         
         var frequencyData = [Float](repeating: 0, count: frequencyBinCount)
         var uint8Values = [UInt8](repeating: 0, count: frequencyBinCount)
